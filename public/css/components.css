@@ -1,0 +1,232 @@
+/* ========================================================================== */
+/* ======================== СТИЛИ КОМПОНЕНТОВ UI ============================ */
+/* ================================= COMPONENTS.CSS ========================= */
+
+/* Карточки услуг (используются на главной и странице услуг) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg); /* Используем переменную для отступа */
+    margin-top: var(--spacing-lg); /* Используем переменную для верхнего отступа */
+}
+
+.service-card {
+    background-color: var(--color-white); /* Используем переменную для белого цвета */
+    padding: var(--spacing-lg); /* Используем переменную для отступа */
+    border-radius: var(--border-radius-base); /* Используем переменную для скругления */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.service-card h3 {
+    font-size: 1.5em;
+    color: var(--color-accent-green); /* Изменено с #007bff на зеленый акцент */
+    margin-bottom: var(--spacing-sm); /* Используем переменную для отступа */
+}
+
+.service-card p {
+    font-size: 0.95em;
+    color: var(--color-text-main); /* Изменено с #666 на основной цвет текста */
+    margin-bottom: var(--spacing-md); /* Используем переменную для отступа */
+}
+
+.service-card .btn-link {
+    font-weight: bold;
+}
+
+/* Полный список услуг (на services.html) */
+.services-full-list .service-item {
+    background-color: var(--color-white); /* Используем переменную для белого цвета */
+    padding: var(--spacing-md); /* Используем переменную для отступа */
+    border-radius: var(--border-radius-base); /* Используем переменную для скругления */
+    box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+    margin-bottom: var(--spacing-md); /* Используем переменную для отступа */
+    transition: transform 0.3s ease;
+}
+
+.services-full-list .service-item:hover {
+    transform: translateX(5px);
+}
+
+.services-full-list .service-item h2 {
+    font-size: 1.8em;
+    text-align: left; /* Переопределяем центрирование заголовка из main.css */
+    margin-bottom: var(--spacing-xs); /* Используем переменную для отступа */
+}
+
+.services-full-list .service-item h2 a {
+    color: var(--color-heading-dark); /* Изменено с #212529 на темный цвет заголовков */
+    text-decoration: none;
+}
+
+.services-full-list .service-item h2 a:hover {
+    color: var(--color-accent-orange); /* Изменено с #007bff на оранжевый акцент */
+    text-decoration: underline;
+}
+
+.services-full-list .service-item p {
+    color: var(--color-text-main); /* Изменено с #555 на основной цвет текста */
+    margin-bottom: 0;
+}
+
+/* Сетка портфолио */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md); /* Используем переменную для отступа */
+    margin-top: var(--spacing-lg); /* Используем переменную для верхнего отступа */
+}
+
+.portfolio-item {
+    background-color: var(--color-white); /* Используем переменную для белого цвета */
+    border-radius: var(--border-radius-base); /* Используем переменную для скругления */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 200px; /* Фиксированная высота для единообразного вида */
+    object-fit: cover; /* Заполняем область, обрезая при необходимости */
+    display: block;
+}
+
+.portfolio-item-info {
+    padding: var(--spacing-sm); /* Используем переменную для отступа */
+}
+
+.portfolio-item-info h3 {
+    font-size: 1.3em;
+    margin-bottom: var(--spacing-xs); /* Используем переменную для отступа */
+    color: var(--color-heading-dark); /* Изменено с #212529 на темный цвет заголовков */
+}
+
+.portfolio-item-info p {
+    font-size: 0.9em;
+    color: var(--color-text-main); /* Изменено с #777 на основной цвет текста */
+    margin-bottom: var(--spacing-xs); /* Используем переменную для отступа */
+}
+
+/* Виджеты отзывов (заглушки для VK/OK) */
+.vk-reviews-widget,
+.ok-reviews-widget {
+    background-color: var(--color-white); /* Используем переменную для белого цвета */
+    padding: var(--spacing-lg); /* Используем переменную для отступа */
+    border-radius: var(--border-radius-base); /* Используем переменную для скругления */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: var(--spacing-lg); /* Используем переменную для отступа */
+    text-align: center; /* Выравнивание текста-заглушки по центру */
+    min-height: 200px; /* Задаем минимальную высоту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: var(--color-text-main); /* Изменено с #888 на основной цвет текста */
+}
+
+/* Сетка постов блога */
+.blog-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg); /* Используем переменную для отступа */
+    margin-top: var(--spacing-lg); /* Используем переменную для верхнего отступа */
+}
+
+.blog-post-card {
+    background-color: var(--color-white); /* Используем переменную для белого цвета */
+    border-radius: var(--border-radius-base); /* Используем переменную для скругления */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.blog-post-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.blog-post-content {
+    padding: var(--spacing-md); /* Используем переменную для отступа */
+}
+
+.blog-post-content h3 {
+    font-size: 1.4em;
+    margin-bottom: var(--spacing-xs); /* Используем переменную для отступа */
+    color: var(--color-heading-dark); /* Изменено с #212529 на темный цвет заголовков */
+}
+
+.blog-post-content p {
+    font-size: 0.9em;
+    color: var(--color-text-main); /* Изменено с #666 на основной цвет текста */
+    margin-bottom: var(--spacing-sm); /* Используем переменную для отступа */
+}
+
+.blog-post-content .read-more {
+    font-weight: bold;
+    color: var(--color-accent-green); /* Изменено с #007bff на зеленый акцент */
+}
+
+/* Форма обратной связи */
+.contact-form {
+    background-color: var(--color-white); /* Используем переменную для белого цвета */
+    padding: var(--spacing-lg); /* Используем переменную для отступа */
+    border-radius: var(--border-radius-base); /* Используем переменную для скругления */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.contact-form .form-label {
+    font-weight: bold;
+    margin-bottom: var(--spacing-xs); /* Используем переменную для отступа */
+    display: block;
+}
+
+.contact-form .form-control {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--color-text-main); /* Изменено с #ced4da на переменную */
+    border-radius: var(--border-radius-base); /* Используем переменную для скругления */
+    font-size: 1em;
+    margin-bottom: var(--spacing-sm); /* Используем переменную для отступа */
+    transition: border-color 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    border-color: var(--color-accent-orange); /* Изменено с #007bff на оранжевый акцент */
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(242, 109, 33, 0.25); /* Изменено с синего на оранжевый акцент */
+}
+
+.contact-form textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Социальные ссылки с крупными иконками */
+.social-links.large-icons a {
+    font-size: 1.8em; /* Более крупные иконки для страницы контактов */
+    margin: 0 var(--spacing-sm); /* Используем переменную для отступа */
+    color: var(--color-accent-green); /* Изменено с #007bff на зеленый акцент */
+}
+
+.social-links.large-icons a:hover {
+    color: var(--color-accent-orange); /* Изменено с #0056b3 на оранжевый акцент */
+}

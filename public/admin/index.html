@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Админ-панель сайта Максима Барского</title>
+</head>
+<body>
+  <div id="nc-root"></div>
+  <div id="nc-root"></div>
+<p id="user-email-display" style="text-align: right; margin-right: 20px; font-weight: bold;"></p>
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", user => {
+          document.location.href = "/admin/";
+        });
+      } else {
+        const nameOrEmail = user.user_metadata.full_name || user.email;
+        const avatarUrl = user.user_metadata.avatar_url || "https://www.gravatar.com/avatar/" + md5(user.email.trim().toLowerCase());
+
+        setTimeout(() => {
+          const avatarBtn = document.querySelector('.nc-appHeader-avatar');
+          if (avatarBtn) {
+            // Очищаем стандартную иконку
+            avatarBtn.innerHTML = "";
+
+            // Добавляем аватар
+            const img = document.createElement('img');
+            img.src = avatarUrl;
+            img.alt = "User avatar";
+            img.style.width = "28px";
+            img.style.height = "28px";
+            img.style.borderRadius = "50%";
+
+            // Добавляем имя/почту
+            const span = document.createElement('span');
+            span.textContent = nameOrEmail;
+            span.style.marginLeft = '10px';
+            span.style.fontWeight = 'bold';
+            span.style.fontSize = '14px';
+
+            // Вставляем
+            avatarBtn.appendChild(img);
+            avatarBtn.appendChild(span);
+          }
+        }, 1000);
+      }
+    });
+  }
+</script>
+	
+
+  </body>
+</html>

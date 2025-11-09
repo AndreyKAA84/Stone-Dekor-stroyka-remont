@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Строительство в Белом Яре</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+<header class="main-header">
+    <div class="container">
+        <a href="index.html" class="logo">Мастер Строитель</a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="portfolio.html">Портфолио</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+    </div>
+</header>
+
+<main>
+    <section id="hero" class="hero-section">
+        <video autoplay muted loop playsinline class="hero-video-bg" poster="assets/img/heroes/hero-placeholder.jpg">
+            <source src="assets/video/homepage-bg.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <div class="hero-content container">
+            <h1>Строим надёжные дома и бани в Белом Яре</h1>
+            <p>Ваш комфорт и качество - наш приоритет. От фундамента до кровли.</p>
+            <a href="services.html" class="btn btn-primary">Посмотреть услуги</a>
+            <a href="contact.html" class="btn btn-tertiary">Задать вопрос</a>
+        </div>
+    </section>
+
+    <section id="about-us-preview" class="section-padded container">
+        <h2>О нас: Ваш надёжный партнёр</h2>
+        <p>Мы команда профессионалов с многолетним опытом в строительстве. Работаем в Белом Яре и по всей Томской области, предлагая индивидуальный подход и гарантированное качество каждой работе.</p>
+        <a href="about.html" class="btn btn-secondary">Подробнее о нас</a>
+    </section>
+
+    <section id="services-preview" class="section-padded container">
+        <h2>Наши основные услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Строительство домов</h3>
+                <p>Возведение коттеджей, дач, каркасных домов под ключ.</p>
+                <a href="services/houses.html" class="btn btn-link">Подробнее</a>
+            </div>
+            <div class="service-card">
+                <h3>Внутренняя отделка</h3>
+                <p>Ремонт квартир и домов, все виды отделочных работ.</p>
+                <a href="services/interior-finishing.html" class="btn btn-link">Подробнее</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio-preview" class="section-padded container">
+        <h2>Наши завершенные проекты</h2>
+        <div class="portfolio-grid" id="vk-gallery-preview">
+            <p>Загрузка проектов...</p>
+        </div>
+        <a href="portfolio.html" class="btn btn-secondary mt-5">Смотреть все проекты</a>
+    </section>
+
+    <section id="reviews-section" class="section-padded container">
+        <h2>Что говорят о нас клиенты</h2>
+        <div class="vk-reviews-widget" id="vk-reviews-widget">
+            <p>Загрузка отзывов ВКонтакте...</p>
+        </div>
+        <div class="ok-reviews-widget" id="ok-reviews-widget">
+            <p>Загрузка отзывов Одноклассники...</p>
+        </div>
+        <a href="reviews.html" class="btn btn-secondary">Все отзывы</a>
+    </section>
+
+    <section id="contact-cta" class="section-padded container text-center">
+        <h2>Готовы начать свой проект?</h2>
+        <p>Свяжитесь с нами для бесплатной консультации и расчёта стоимости.</p>
+        <a href="contact.html" class="btn btn-primary btn-lg">Оставить заявку</a>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container">
+        <p>&copy; 2025 Ваша Строительная Компания. Все права защищены.</p>
+        <div class="social-links">
+            <a href="https://vk.com/your_vk_page" target="_blank" aria-label="ВКонтакте">VK</a>
+            <a href="https://ok.ru/your_ok_page" target="_blank" aria-label="Одноклассники">OK</a>
+            <a href="https://t.me/your_telegram" target="_blank" aria-label="Telegram">TG</a>
+            <a href="https://wa.me/your_whatsapp_number" target="_blank" aria-label="WhatsApp">WA</a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/blog.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("login", user => {
+      if (document.location.pathname === "/") {
+        document.location.href = "/admin/";
+      }
+    });
+
+    window.netlifyIdentity.on("init", user => {
+      if (user && document.location.pathname === "/") {
+          console.log("User already logged in on main page, redirecting to admin.");
+          document.location.href = "/admin/";
+      }
+    });
+  }
+</script>
+</body>
+</html>

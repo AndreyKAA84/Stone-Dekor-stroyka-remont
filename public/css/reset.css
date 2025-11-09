@@ -1,0 +1,137 @@
+/* --- Сброс стилей (Reset CSS) --- */
+
+/* Общие правила для всех элементов: Box sizing, обнуление margin/padding */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Учитывает padding и border в ширине/высоте элемента */
+    margin: 0;
+    padding: 0;
+}
+
+/* Сброс стилей для HTML */
+html {
+    -webkit-text-size-adjust: 100%; /* Предотвращает автоматическое изменение размера текста на мобильных устройствах */
+    -ms-text-size-adjust: 100%;
+    font-size: 16px; /* Базовый размер шрифта для root-элемента (1rem = 16px), можно адаптировать */
+    line-height: 1.5; /* Базовая высота строки для html (можно переопределить для body) */
+    scroll-behavior: smooth; /* Плавный скроллинг по якорям */
+    height: 100%; /* HTML занимает всю высоту */
+}
+
+/* Сброс стилей для Body */
+body {
+    min-height: 100vh; /* Body занимает минимум 100% высоты окна просмотра */
+    text-rendering: optimizeLegibility; /* Улучшенное сглаживание шрифтов */
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Сглаживание шрифтов для Firefox/macOS */
+    /* Важно: Стили font-family, color, background-color для body лучше перенести в main.css или layout.css */
+}
+
+/* Сброс стилей для заголовков */
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit; /* Заголовки наследуют размер шрифта от родителя */
+    font-weight: inherit; /* Заголовки наследуют жирность шрифта от родителя */
+}
+
+/* Сброс стилей для списков */
+ul, ol {
+    list-style: none;
+}
+
+/* Сброс стилей для ссылок */
+a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: inherit; /* Наследуем цвет текста от родителя */
+    background-color: transparent; /* Убираем фон */
+}
+a:active, a:hover {
+    outline-width: 0; /* Убираем outline при активации/наведении */
+}
+
+/* Сброс стилей для изображений */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block; /* Избегаем лишних отступов под изображениями */
+    max-width: 100%; /* Изображения не выходят за пределы родителя */
+    height: auto; /* Сохраняем пропорции */
+    border-style: none; /* Убираем рамки */
+}
+
+/* Сброс стилей для форм */
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit; /* Наследуем шрифт от родителя */
+    font-size: 100%; /* Сохраняем размер шрифта */
+    line-height: 1.15; /* Базовая высота строки */
+    /* margin: 0; - уже обнулено в универсальном сбросе */
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, [type="button"], [type="reset"], [type="submit"] {
+    -webkit-appearance: button;
+}
+
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+textarea {
+    overflow: auto;
+    resize: vertical; /* Разрешаем изменение размера только по вертикали */
+}
+
+[type="checkbox"], [type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+[type="search"] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/* Details and Summary element */
+details {
+    display: block;
+}
+
+summary {
+    display: list-item;
+}
+
+/* Table reset */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td, th {
+    padding: 0;
+}

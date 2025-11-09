@@ -1,0 +1,340 @@
+/* ========================================================================== */
+/* ======================== ОСНОВНЫЕ ГЛОБАЛЬНЫЕ СТИЛИ ======================= */
+/* =================================== MAIN.CSS ============================= */
+
+/* --- НАЧАЛО ПЕРЕМЕННЫХ ЦВЕТА (DESIGN TOKENS) --- */
+:root {
+    /* Основные цвета */
+    --color-background-light: #FDF8F3; /* Очень светлый бежевый/кремовый: основной фон страниц */
+    --color-background-neutral: #D7C4A5; /* Второй фоновый/нейтральный: для секций или карточек */
+    --color-heading-dark: #4D382B;     /* Темный шоколадный/венге: для всех заголовков (h1-h6) */
+    --color-text-main: #8B7355;        /* Средний теплый коричневый/цвет дуба: для основного текста параграфов */
+
+    /* Акцентные цвета */
+    --color-accent-green: #528A35;    /* Яркий лесной зеленый: один из двух акцентных цветов, для логотипа, иконок, активных состояний */
+    --color-accent-orange: #F26D21;   /* Яркий строительный оранжевый: второй акцентный цвет, для кнопок призыва к действию (CTA), логотипа */
+
+    /* Вспомогательные цвета */
+    --color-white: #FFFFFF; /* Чистый белый */
+
+    /* --- ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ДЛЯ ОТСТУПОВ, РАЗМЕРОВ, ЗАКРУГЛЕНИЙ --- */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+    --spacing-xxl: 80px;
+
+    --max-width-content: 1200px; /* Максимальная ширина контента контейнера */
+    --border-radius-base: 5px; /* Базовый радиус скругления */
+
+    /* Переменные для типографии */
+    --font-family-base: 'Open Sans', sans-serif;
+    --font-family-heading: 'Montserrat', sans-serif;
+    --font-size-base: 1em; /* Базовый размер шрифта, 16px по умолчанию */
+    --line-height-base: 1.6;
+}
+/* --- КОНЕЦ ПЕРЕМЕННЫХ ЦВЕТА И ОСНОВНЫХ ТОКЕНОВ --- */
+
+
+/* --- НАЧАЛО СОБСТВЕННЫХ ШРИФТОВ (@FONT-FACE RULES) --- */
+/* Open Sans Regular (400) */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/OpenSans-Regular.woff2') format('woff2'),
+    url('../assets/fonts/OpenSans-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+/* Open Sans SemiBold (600) */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../assets/fonts/OpenSans-SemiBold.woff2') format('woff2'),
+    url('../assets/fonts/OpenSans-SemiBold.woff') format('woff');
+    font-display: swap;
+}
+
+/* Montserrat Regular (400) */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/Montserrat-Regular.woff2') format('woff2'),
+    url('../assets/fonts/Montserrat-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+/* Montserrat Bold (700) */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/Montserrat-Bold.woff2') format('woff2'),
+    url('../assets/fonts/Montserrat-Bold.woff') format('woff');
+    font-display: swap;
+}
+/* --- КОНЕЦ СОБСТВЕННЫХ ШРИФТОВ (@FONT-FACE RULES) --- */
+
+
+/* --- НАЧАЛО ОБЩИХ СТИЛЕЙ ТЕЛА И HTML --- */
+/* General Body and HTML Styles */
+body {
+    font-family: var(--font-family-base); /* Используем переменную для базового шрифта */
+    color: var(--color-text-main); /* Основной цвет текста из палитры */
+    background-color: var(--color-background-light); /* Основной фон сайта из палитры */
+    line-height: var(--line-height-base); /* Используем переменную для высоты строки */
+    font-size: var(--font-size-base); /* Базовый размер шрифта */
+    margin: 0; /* Сброс стандартных отступов body */
+}
+
+/* Контейнер для центрирования содержимого */
+/* Этот класс обеспечивает центрирование контента и адаптивные отступы по бокам */
+.container {
+    max-width: var(--max-width-content); /* Используем переменную для максимальной ширины */
+    margin: 0 auto; /* Центрирование контейнера */
+    padding: 0 var(--spacing-sm); /* Адаптивные отступы по бокам */
+}
+
+/* Отступы для основных секций */
+/* Этот класс обеспечивает равномерные вертикальные отступы между основными блоками контента */
+.section-padded {
+    padding: var(--spacing-xl) 0; /* Отступы сверху и снизу для секций */
+}
+/* --- КОНЕЦ ОБЩИХ СТИЛЕЙ ТЕЛА И HTML --- */
+
+
+/* --- НАЧАЛО БАЗОВЫХ СТИЛЕЙ ТИПОГРАФИКИ --- */
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading); /* Используем переменную для шрифта заголовков */
+    color: var(--color-heading-dark); /* Цвет заголовков из палитры */
+    margin-bottom: var(--spacing-md); /* Отступ под заголовками */
+    line-height: 1.2;
+    margin-top: 1em; /* Отступ сверху для заголовков */
+}
+
+h1 {
+    font-size: clamp(2.2em, 5vw + 1rem, 3.5em); /* Адаптивный размер H1 с clamp() */
+    text-align: center;
+    margin-bottom: var(--spacing-lg); /* Увеличенный отступ для H1 */
+}
+
+h2 {
+    font-size: clamp(1.8em, 4vw + 1rem, 2.8em); /* Адаптивный размер H2 */
+    text-align: center;
+    margin-bottom: var(--spacing-lg); /* Увеличенный отступ для H2 */
+}
+
+h3 {
+    font-size: clamp(1.4em, 3vw + 0.5rem, 2em); /* Адаптивный размер H3 */
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Сброс верхнего отступа для заголовков, если они первые в своем контейнере/секции */
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+    margin-top: 0;
+}
+
+/* Параграфы */
+p {
+    margin-bottom: var(--spacing-sm); /* Отступ под параграфом */
+}
+p + p { /* Отступ между двумя последовательными параграфами */
+    margin-top: 1em;
+}
+
+/* Элементы списка */
+ul li + li, ol li + li {
+    margin-top: 0.5em; /* Небольшой отступ между элементами списка */
+}
+/* --- КОНЕЦ БАЗОВЫХ СТИЛЕЙ ТИПОГРАФИКИ --- */
+
+
+/* --- НАЧАЛО СТИЛЕЙ ССЫЛОК --- */
+/* Ссылки */
+a {
+    color: var(--color-accent-green); /* Основной цвет ссылок из палитры */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Плавный переход цвета при наведении */
+}
+
+a:hover {
+    color: var(--color-accent-orange); /* Акцентный оранжевый при наведении */
+    text-decoration: underline;
+}
+/* --- КОНЕЦ СТИЛЕЙ ССЫЛОК --- */
+
+
+/* --- НАЧАЛО БАЗОВЫХ СТИЛЕЙ КНОПОК --- */
+/* Кнопки (базовые стили) */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md); /* Используем переменные отступов */
+    font-size: var(--font-size-base);
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-base); /* Используем переменную для скругления */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none; /* Убираем подчеркивание для кнопок-ссылок */
+}
+
+/* Переопределение фокуса */
+.btn:focus,
+.btn:focus-visible {
+    outline: 0; /* Убираем стандартную обводку браузера */
+    box-shadow: 0 0 0 0.35rem rgba(242, 109, 33, 0.6); /* Наш оранжевый акцент */
+}
+
+/* --- ТИПЫ КНОПОК --- */
+.btn-primary {
+    background-color: var(--color-accent-orange); /* Акцентный оранжевый */
+    color: var(--color-white); /* Белый текст */
+    border-color: var(--color-accent-orange);
+}
+
+.btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-accent-orange) 85%, black); /* Затемнение с color-mix() */
+    border-color: color-mix(in srgb, var(--color-accent-orange) 85%, black);
+}
+
+.btn-secondary {
+    background-color: var(--color-background-neutral); /* Нейтральный фон */
+    color: var(--color-heading-dark); /* Темный текст */
+    border-color: var(--color-background-neutral);
+}
+
+.btn-secondary:hover {
+    background-color: color-mix(in srgb, var(--color-background-neutral) 90%, black); /* Чуть темнее бежевый */
+    border-color: color-mix(in srgb, var(--color-background-neutral) 90%, black);
+    color: var(--color-heading-dark); /* Темный текст */
+}
+
+.btn-tertiary {
+    background-color: var(--color-accent-green); /* Акцентный зеленый */
+    color: var(--color-white);
+    border-color: var(--color-accent-green);
+}
+
+.btn-tertiary:hover {
+    background-color: color-mix(in srgb, var(--color-accent-green) 85%, black);
+    border-color: color-mix(in srgb, var(--color-accent-green) 85%, black);
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: var(--color-accent-green); /* Ссылки в виде кнопок - акцентный зеленый */
+    padding: 0;
+    font-weight: normal;
+    text-decoration: underline;
+    &:hover {
+        color: var(--color-accent-orange);
+        text-decoration: none;
+    }
+}
+
+/* --- РАЗМЕРЫ КНОПОК --- */
+.btn-lg {
+    padding: var(--spacing-md) var(--spacing-xl); /* Увеличенные отступы */
+    font-size: clamp(1.25em, 2vw + 0.5rem, 1.5em); /* Адаптивный размер шрифта для большой кнопки */
+    border-radius: var(--border-radius-base);
+}
+
+/* --- СТИЛИ КНОПОК-ФИЛЬТРОВ ПОРТФОЛИО (НЕЙТРОМОРФИЗМ) --- */
+.portfolio-categories {
+    text-align: center; /* Центрируем кнопки внутри */
+    margin-bottom: var(--spacing-lg); /* Отступ снизу для секции кнопок */
+}
+
+.portfolio-categories .btn {
+    /* Базовые стили: светло-бежевые, выпуклые, резкие тени */
+    background-color: var(--color-background-neutral);
+    color: var(--color-heading-dark); /* Темный текст на светлом фоне */
+    border: none;
+    /* Усиленные тени для большей видимости */
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.35), /* Нижняя правая темная тень */
+    -3px -3px 6px rgba(255, 255, 255, 0.9); /* Верхняя левая светлая тень */
+    transition: all 0.2s ease-in-out;
+    margin: var(--spacing-xs); /* Отступ между кнопками */
+    cursor: pointer; /* Делаем курсор "ручкой" по умолчанию */
+}
+
+.portfolio-categories .btn:not(.active):hover {
+    background-color: color-mix(in srgb, var(--color-background-neutral) 90%, black); /* Чуть темнее бежевый */
+    /* Менее выраженная тень при наведении, для эффекта легкого нажатия */
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), /* Нижняя правая темная тень */
+    -1px -1px 2px rgba(255, 255, 255, 0.7); /* Верхняя левая светлая тень */
+    transform: translateY(1px); /* Небольшое смещение вниз для эффекта легкого нажатия */
+}
+
+.portfolio-categories .btn.active {
+    background-color: var(--color-background-neutral); /* Цвет не меняется, остается базовым */
+    color: var(--color-heading-dark); /* Текст остается темным */
+    border: none;
+    /* Глубокая, резкая, концентрированная внутренняя тень для эффекта "вдавленности" */
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.6), /* Углубленная, резкая, концентрированная внутренняя тень сверху */
+    inset -4px -4px 8px rgba(255, 255, 255, 0.7); /* Засвет низа нажатой кнопки светом сверху */
+    transform: translateY(0); /* Сброс возможного transform */
+    cursor: default; /* Курсор не меняется, кнопка "неактивна" для взаимодействия */
+    /* Для активной кнопки нет отдельного :hover состояния */
+}
+/* --- КОНЕЦ СТИЛЕЙ КНОПОК-ФИЛЬТРОВ ПОРТФОЛИО --- */
+
+
+/* --- НАЧАЛО СТИЛЕЙ ИЗОБРАЖЕНИЙ --- */
+/* Изображения */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Обеспечивает корректное размещение */
+}
+/* --- КОНЕЦ СТИЛЕЙ ИЗОБРАЖЕНИЙ --- */
+
+
+/* --- НАЧАЛО СТИЛЕЙ ВЫРАВНИВАНИЯ ТЕКСТА --- */
+/* Выравнивание текста */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+/* --- КОНЕЦ СТИЛЕЙ ВЫРАВНИВАНИЯ ТЕКСТА --- */
+
+
+/* --- НАЧАЛО СТИЛЕЙ ОТСТУПОВ --- */
+/* Отступы (пример, можно расширить) */
+/* Используем переменную --spacing-md (24px) как 1.5rem (24/16) */
+.my-4 {
+    margin-top: calc(var(--spacing-md) * 1.5); /* 1.5 от базового размера шрифта или 1.5 * 24px */
+    margin-bottom: calc(var(--spacing-md) * 1.5);
+}
+
+.mt-5 {
+    margin-top: var(--spacing-xl); /* Используем переменную --spacing-xl */
+}
+/* --- КОНЕЦ СТИЛЕЙ ОТСТУПОВ --- */
+
+
+/* ========================================================================== */
+/* ======================== КОНЕЦ ОСНОВНЫХ ГЛОБАЛЬНЫХ СТИЛЕЙ ================ */
+/* =================================== MAIN.CSS ============================= */

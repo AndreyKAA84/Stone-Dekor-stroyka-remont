@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main # Или другая ветка, которую вы используете для развертывания
+  identity_url: https://barsky-remont-site.netlify.app/.netlify/identity
+
+media_folder: "public/img/uploads" # Путь к папке для медиафайлов относительно корня репозитория
+public_folder: "/img/uploads"     # Путь к папке для медиафайлов относительно корня сайта
+
+collections:
+  - name: "posts" # Имя коллекции (будет видно в админке)
+    label: "Записи блога" # Отображаемое имя
+    folder: "content/posts" # Путь к папке с контентом относительно корня репозитория
+    create: true # Разрешить создание новых записей
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Шаблон для имени файла
+    fields: # Поля для каждой записи
+      - {label: "Заголовок", name: "title", widget: "string"}
+      - {label: "Дата публикации", name: "date", widget: "datetime"}
+      - {label: "Содержание", name: "body", widget: "markdown"}

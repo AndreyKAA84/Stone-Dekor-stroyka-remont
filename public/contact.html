@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Строительство в Белом Яре</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+<header class="main-header">
+    <div class="container">
+        <a href="index.html" class="logo">Мастер Строитель</a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="portfolio.html">Портфолио</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+    </div>
+</header>
+
+<main class="section-padded container">
+    <h1>Свяжитесь с нами</h1>
+    <p>У вас есть вопросы, предложения или вы хотите обсудить свой будущий строительный проект? Мы всегда на связи!</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Наши контакты</h2>
+            <p><strong>Телефон:</strong> <a href="tel:+70001234567">+7 (000) 123-45-67</a></p>
+            <p><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></p>
+            <p><strong>Адрес:</strong> г. Белый Яр, ул. Строителей, д. 1</p>
+
+            <h3>Мы в социальных сетях:</h3>
+            <div class="social-links large-icons">
+                <a href="https://vk.com/your_vk_page" target="_blank" aria-label="ВКонтакте">VK</a>
+                <a href="https://ok.ru/your_ok_page" target="_blank" aria-label="Одноклассники">OK</a>
+                <a href="https://t.me/your_telegram" target="_blank" aria-label="Telegram">TG</a>
+                <a href="https://wa.me/your_whatsapp_number" target="_blank" aria-label="WhatsApp">WA</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2>Напишите нам</h2>
+            <form action="#" method="POST" class="contact-form">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Ваше имя:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Ваш Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Ваш телефон:</label>
+                    <input type="tel" class="form-control" id="phone" name="phone">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Ваше сообщение:</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="map-container my-5">
+        <h2>Мы на карте</h2>
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Afe6b1c2e4d5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+        <p class="mt-2 text-center">Мы всегда рады встрече с вами в нашем офисе.</p>
+    </div>
+</main>
+
+<footer class="main-footer">
+    <div class="container">
+        <p>&copy; 2025 Ваша Строительная Компания. Все права защищены.</p>
+        <div class="social-links">
+            <a href="https://vk.com/your_vk_page" target="_blank" aria-label="ВКонтакте">VK</a>
+            <a href="https://ok.ru/your_ok_page" target="_blank" aria-label="Одноклассники">OK</a>
+            <a href="https://t.me/your_telegram" target="_blank" aria-label="Telegram">TG</a>
+            <a href="https://wa.me/your_whatsapp_number" target="_blank" aria-label="WhatsApp">WA</a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/blog.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

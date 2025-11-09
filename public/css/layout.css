@@ -1,0 +1,192 @@
+/* Основные стили шапки */
+.main-header {
+    background-color: #212529; /* Темный фон для шапки */
+    color: #fff; /* Белый текст */
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: sticky; /* Делает шапку "липкой" при прокрутке */
+    top: 0;
+    z-index: 1000; /* Убеждаемся, что шапка находится выше другого контента */
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-header .logo:hover {
+    color: #007bff; /* Подсветка при наведении */
+}
+
+/* Стили основной навигации */
+.main-nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 1; /* Убеждаемся, что line-height для списка */
+    /* align-items: center; -- Эту строку УБРАТЬ ОТСЮДА (если была), т.к. она будет в media.css */
+}
+
+.main-nav ul li {
+    margin-left: 30px;
+    display: flex; /* Важно: делаем элемент списка flex-контейнером */
+    align-items: center; /* Выравниваем содержимое (ссылку) по центру вертикали внутри li */
+    padding: 0; /* Убеждаемся, что здесь нет вертикальных отступов */
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 5px 0; /* Возвращаем вертикальный padding на ссылку */
+    transition: color 0.3s ease;
+    position: relative; /* Для эффекта подчеркивания */
+    display: flex; /* Возвращаем flex для ссылки */
+    align-items: center; /* Выравниваем содержимое (текст) по центру по вертикали */
+    height: 100%; /* Убедимся, что ссылка занимает всю доступную высоту li */
+    line-height: 1.2; /* Немного увеличенный line-height для лучшего отображения текста */
+    justify-content: center; /* Центрируем по горизонтали, если текст разной длины */
+}
+
+.main-nav ul li a:hover {
+    color: #007bff;
+}
+
+/* Эффект подчеркивания при наведении */
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Кнопка переключения меню (для мобильных устройств) */
+.menu-toggle {
+    display: none; /* Скрыта по умолчанию, показывается на маленьких экранах */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Секция Hero (Баннер на главной странице) */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Регулируемая высота */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    filter: brightness(0.6); /* Затемнение видео */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон для текста */
+    border-radius: 10px;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    color: #fff;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+.hero-content .btn {
+    margin: 0 10px;
+}
+
+/* Стили подвала */
+.main-footer {
+    background-color: #212529; /* Темный фон для подвала */
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.main-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-footer p {
+    margin-bottom: 10px;
+}
+
+.main-footer .social-links {
+    margin-top: 15px;
+}
+
+.main-footer .social-links a {
+    color: #fff;
+    font-size: 1.2em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.main-footer .social-links a:hover {
+    color: #007bff;
+}
+
+/* Контейнер карты */
+.map-container {
+    width: 100%;
+    height: 400px; /* Фиксированная высота для карты */
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,128 @@
+/* Медиа-запросы для адаптивного дизайна */
+
+/* Малые устройства (телефоны, 576px и меньше) */
+@media (max-width: 576px) {
+    .main-header .container {
+        flex-direction: column; /* Располагаем логотип и навигацию по вертикали */
+        align-items: flex-start;
+    }
+
+    .main-header .logo {
+        margin-bottom: 10px;
+    }
+
+    .main-nav {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Располагаем пункты меню по вертикали */
+        width: 100%;
+        display: none; /* Скрыто по умолчанию для мобильных устройств */
+        text-align: center;
+    }
+
+    .main-nav ul.active {
+        display: flex; /* Показываем, когда активно (для мобильного меню) */
+    }
+
+    .main-nav ul li {
+        margin: 10px 0; /* Корректируем отступы */
+        width: 100%;
+    }
+
+    .main-nav ul li a {
+        display: block; /* Делаем ссылки на всю ширину */
+        padding: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Показываем иконку "гамбургера" */
+        position: absolute; /* Позиционируем в правом верхнем углу */
+        top: 15px;
+        right: 15px;
+    }
+
+    .hero-section {
+        height: 400px; /* Корректируем высоту секции Hero для маленьких экранов */
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .hero-content .btn {
+        margin: 5px 0; /* Располагаем кнопки по вертикали */
+        width: 80%; /* Делаем кнопки шире */
+    }
+
+    .section-padded {
+        padding: 40px 0; /* Уменьшаем отступы секций */
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .services-grid, .portfolio-grid, .blog-posts-grid {
+        grid-template-columns: 1fr; /* Одна колонка */
+    }
+
+    .contact-form {
+        padding: 20px; /* Уменьшаем отступы формы */
+    }
+
+    .social-links.large-icons a {
+        font-size: 1.5em; /* Корректируем размер иконок соцсетей */
+    }
+
+    .map-container {
+        height: 300px; /* Корректируем высоту карты */
+    }
+}
+
+/* Средние устройства (планшеты, от 577px до 991px) */
+@media (min-width: 577px) and (max-width: 991px) {
+    .main-nav ul li {
+        margin-left: 20px; /* Чуть меньше отступ для пунктов меню */
+    }
+
+    .hero-section {
+        height: 500px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .services-grid, .portfolio-grid, .blog-posts-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Две колонки */
+    }
+}
+
+/* Большие устройства (настольные ПК, от 992px и выше) */
+@media (min-width: 992px) {
+    .main-nav ul {
+        display: flex; /* <<< УБРАН !important ОТСЮДА! */
+        align-items: flex-end; /* выравниваем ссылки меню по нижней линии */
+    }
+
+    .menu-toggle {
+        display: none; /* Скрываем "гамбургер" на больших экранах */
+    }
+}
