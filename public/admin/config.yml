@@ -1,18 +1,46 @@
 backend:
   name: git-gateway
-  branch: main # Или другая ветка, которую вы используете для развертывания
-  identity_url: https://barsky-remont-site.netlify.app/.netlify/identity
+  branch: main   # или master — какая у тебя ветка
 
-media_folder: "public/img/uploads" # Путь к папке для медиафайлов относительно корня репозитория
-public_folder: "/img/uploads"     # Путь к папке для медиафайлов относительно корня сайта
+media_folder: "public/img/uploads"
+public_folder: "/img/uploads"
 
+site_url: https://stone-dekor-stroyka-remont.netlify.app
+display_url: https://stone-dekor-stroyka-remont.netlify.app
+
+# Вход через Google (уже работает!)
+auth:
+  scope: openid profile email
+
+# Коллекции — то, что Максим будет редактировать
 collections:
-  - name: "posts" # Имя коллекции (будет видно в админке)
-    label: "Записи блога" # Отображаемое имя
-    folder: "content/posts" # Путь к папке с контентом относительно корня репозитория
-    create: true # Разрешить создание новых записей
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Шаблон для имени файла
-    fields: # Поля для каждой записи
-      - {label: "Заголовок", name: "title", widget: "string"}
-      - {label: "Дата публикации", name: "date", widget: "datetime"}
-      - {label: "Содержание", name: "body", widget: "markdown"}
+  - name: "gallery"
+    label: "Галерея / Портфолио"
+    folder: "content/gallery"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Название проекта", name: "title", widget: "string" }
+      - { label: "Описание", name: "description", widget: "text" }
+      - { label: "Embed-код видео VK или фото", name: "media", widget: "text", hint: "Вставь embed-код из VK или ссылку на фото" }
+      - { label: "Дата", name: "date", widget: "datetime" }
+
+  - name: "blog"
+    label: "Блог / Новости"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Текст поста", name: "body", widget: "markdown" }
+      - { label: "Дата", name: "date", widget: "datetime", default: "{{now}}" }
+
+  - name: "settings"
+    label: "Настройки сайта (темы и заставка)"
+    files:
+      - file: "content/settings/theme.yml"
+        label: "Темы и цвета"
+        name: "theme"
+        fields:
+          - { label: "Текущая тема", name: "current", widget: "select", options: ["light", "dark", "new-year", "march-8"], default: "light" }
+          - { label: "Видео на главной (embed)", name: "hero_video", widget: "text" }
