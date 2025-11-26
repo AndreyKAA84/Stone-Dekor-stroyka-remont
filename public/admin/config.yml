@@ -8,10 +8,8 @@ backend:
 media_folder: "public/assets/images"
 public_folder: "/assets/images"
 
-# Открываем админку сразу с формой входа (без автологина)
 site_url: https://stone-dekor-stroyka-remont.netlify.app
 display_url: https://stone-dekor-stroyka-remont.netlify.app
-logo_url: https://stone-dekor-stroyka-remont.netlify.app/favicon.ico
 
 collections:
   - name: "blog"
@@ -34,13 +32,11 @@ collections:
       - { label: "Изображения", name: "images", widget: "list", field: { label: "Изображение", name: "image", widget: "image" } }
       - { label: "Видео (YouTube/VK)", name: "video", widget: "string", required: false }
 
-# ────────────────────────────────
-# РОЛИ (работают и с Auth0/Google)
-# ────────────────────────────────
+# Роли
 users:
   - email: "89528916189kaa@gmail.com"
     role: admin
-  - email: "googlushkin@gmail.com"   # потом заменишь на email Максима Барского
+  - email: "googlushkin@gmail.com"   # потом заменишь на Максима
     role: editor
 
 roles:
