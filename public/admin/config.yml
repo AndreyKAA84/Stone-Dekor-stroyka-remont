@@ -1,9 +1,17 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: auth0
+  auth_endpoint: https://stone-dekor-stroyka-remont.netlify.app/.netlify/identity
+  auth0_domain: ${AUTH0_DOMAIN}
+  client_id: ${AUTH0_CLIENT_ID}
+  audience: ${AUTH0_AUDIENCE}
 
 media_folder: "public/assets/images"
 public_folder: "/assets/images"
+
+# Открываем админку сразу с формой входа (без автологина)
+site_url: https://stone-dekor-stroyka-remont.netlify.app
+display_url: https://stone-dekor-stroyka-remont.netlify.app
+logo_url: https://stone-dekor-stroyka-remont.netlify.app/favicon.ico
 
 collections:
   - name: "blog"
@@ -27,12 +35,12 @@ collections:
       - { label: "Видео (YouTube/VK)", name: "video", widget: "string", required: false }
 
 # ────────────────────────────────
-# РОЛИ
+# РОЛИ (работают и с Auth0/Google)
 # ────────────────────────────────
 users:
-  - email: "89528916189kaa@gmail.com"   # Ты — полный админ
+  - email: "89528916189kaa@gmail.com"
     role: admin
-  - email: "googlushkin@gmail.com"      # Тестовый второй аккаунт — редактор
+  - email: "googlushkin@gmail.com"   # потом заменишь на email Максима Барского
     role: editor
 
 roles:
