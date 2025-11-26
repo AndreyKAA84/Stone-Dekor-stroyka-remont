@@ -1,46 +1,48 @@
 backend:
-  name: auth0
-  auth_endpoint: https://stone-dekor-stroyka-remont.netlify.app/.netlify/identity
-  auth0_domain: ${AUTH0_DOMAIN}
-  client_id: ${AUTH0_CLIENT_ID}
-  audience: ${AUTH0_AUDIENCE}
+  name: git-gateway
+  branch: main
 
-media_folder: "public/assets/images"
-public_folder: "/assets/images"
+media_folder: "public/img/uploads"
+public_folder: "/img/uploads"
 
 site_url: https://stone-dekor-stroyka-remont.netlify.app
 display_url: https://stone-dekor-stroyka-remont.netlify.app
 
+auth:
+  scope: openid profile email
+
+# Только пользователи с этими ролями смогут зайти в админку
+roles:
+  - sysadmin
+  - editor
+
 collections:
-  - name: "blog"
-    label: "Блог"
-    folder: "content/posts"
+  - name: gallery
+    label: "Галерея / Портфолио"
+    folder: "content/gallery"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Заголовок", name: "title", widget: "string" }
-      - { label: "Дата", name: "date", widget: "datetime" }
-      - { label: "Текст", name: "body", widget: "markdown" }
+      - { label: "Название проекта", name: title, widget: string }
+      - { label: "Краткое описание", name: body, widget: markdown }
+      - { label: "Embed-код из VK (видео или фото)", name: embed, widget: text, hint: "Вставь сюда полный <iframe> из ВКонтакте" }
+      - { label: "Дата завершения", name: date, widget: datetime }
 
-  - name: "portfolio"
-    label: "Портфолио / Галерея"
-    folder: "content/portfolio"
+  - name: blog
+    label: "Блог / Новости"
+    folder: "content/blog"
     create: true
     fields:
-      - { label: "Название проекта", name: "title", widget: "string" }
-      - { label: "Описание", name: "description", widget: "text" }
-      - { label: "Изображения", name: "images", widget: "list", field: { label: "Изображение", name: "image", widget: "image" } }
-      - { label: "Видео (YouTube/VK)", name: "video", widget: "string", required: false }
+      - { label: "Заголовок", name: title, widget: string }
+      - { label: "Текст статьи", name: body, widget: markdown }
+      - { label: "Дата", name: date, widget: datetime }
 
-# Роли
-users:
-  - email: "89528916189kaa@gmail.com"
-    role: admin
-  - email: "googlushkin@gmail.com"   # потом заменишь на Максима
-    role: editor
-
-roles:
-  editor:
-    collections:
-      - blog
-      - portfolio
+  - name: settings
+    label: "Настройки сайта"
+    files:
+      - file: "content/settings/site.yml"
+        label: "Тема и видео на главной"
+        name: site
+        fields:
+          - { label: "Тема сайта", name: theme, widget: select, options: ["light","dark","new-year","march-8"], default: "light" }
+          - { label: "Видео на главной (embed VK)", name: hero_video, widget: text }
