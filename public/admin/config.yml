@@ -1,48 +1,13 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: andreykaa/barsky-remont-site
   branch: main
+  auth_type: implicit
 
 media_folder: "public/img/uploads"
 public_folder: "/img/uploads"
 
 site_url: https://stone-dekor-stroyka-remont.netlify.app
-display_url: https://stone-dekor-stroyka-remont.netlify.app
-
-auth:
-  scope: openid profile email
-
-# Только пользователи с этими ролями смогут зайти в админку
-roles:
-  - sysadmin
-  - editor
 
 collections:
-  - name: gallery
-    label: "Галерея / Портфолио"
-    folder: "content/gallery"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Название проекта", name: title, widget: string }
-      - { label: "Краткое описание", name: body, widget: markdown }
-      - { label: "Embed-код из VK (видео или фото)", name: embed, widget: text, hint: "Вставь сюда полный <iframe> из ВКонтакте" }
-      - { label: "Дата завершения", name: date, widget: datetime }
-
-  - name: blog
-    label: "Блог / Новости"
-    folder: "content/blog"
-    create: true
-    fields:
-      - { label: "Заголовок", name: title, widget: string }
-      - { label: "Текст статьи", name: body, widget: markdown }
-      - { label: "Дата", name: date, widget: datetime }
-
-  - name: settings
-    label: "Настройки сайта"
-    files:
-      - file: "content/settings/site.yml"
-        label: "Тема и видео на главной"
-        name: site
-        fields:
-          - { label: "Тема сайта", name: theme, widget: select, options: ["light","dark","new-year","march-8"], default: "light" }
-          - { label: "Видео на главной (embed VK)", name: hero_video, widget: text }
+  # твои коллекции (gallery, blog, settings) оставь как есть
