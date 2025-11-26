@@ -2,41 +2,45 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "public/assets/images"
-public_folder: "/assets/images"
+media_folder: "public/img/uploads"
+public_folder: "/img/uploads"
+
+site_url: https://stone-dekor-stroyka-remont.netlify.app
+display_url: https://stone-dekor-stroyka-remont.netlify.app
+
+auth:
+  auth0:
+    clientID: ТВОЙ_CLIENT_ID_ИЗ_AUTH0  # вставь сюда, например 344170084750-40d6v756e7k8qfbd9e31nm8uv4auvv0n
+    domain: ТВОЙ_DOMAIN_ИЗ_AUTH0  # вставь сюда, например dev-abc123.eu.auth0.com
 
 collections:
-  - name: "blog"
-    label: "Блог"
-    folder: "content/posts"
+  - name: gallery
+    label: "Галерея / Портфолио"
+    folder: "content/gallery"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Заголовок", name: "title", widget: "string" }
-      - { label: "Дата", name: "date", widget: "datetime" }
-      - { label: "Текст", name: "body", widget: "markdown" }
+      - { label: "Название проекта", name: title, widget: string }
+      - { label: "Описание", name: body, widget: markdown }
+      - { label: "Embed-код из VK", name: embed, widget: text, hint: "Вставь <iframe> из ВКонтакте" }
+      - { label: "Дата", name: date, widget: datetime }
 
-  - name: "portfolio"
-    label: "Портфолио / Галерея"
-    folder: "content/portfolio"
+  - name: blog
+    label: "Блог / Новости"
+    folder: "content/blog"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Название проекта", name: "title", widget: "string" }
-      - { label: "Описание", name: "description", widget: "text" }
-      - { label: "Изображения", name: "images", widget: "list", field: { label: "Изображение", name: "image", widget: "image" } }
-      - { label: "Видео (YouTube/VK)", name: "video", widget: "string", required: false }
+      - { label: "Заголовок", name: title, widget: string }
+      - { label: "Текст", name: body, widget: markdown }
+      - { label: "Дата", name: date, widget: datetime }
 
-# ────────────────────────────────
-# РОЛИ
-# ────────────────────────────────
-users:
-  - email: "89528916189kaa@gmail.com"   # Ты — полный админ
-    role: admin
-  - email: "googlushkin@gmail.com"      # Тестовый второй аккаунт — редактор
-    role: editor
-
-roles:
-  editor:
-    collections:
-      - blog
-      - portfolio
+  - name: settings
+    label: "Настройки сайта"
+    files:
+      - file: "content/settings/site.yml"
+        label: "Тема и видео"
+        name: settings
+        fields:
+          - { label: "Тема", name: theme, widget: select, options: ["light","dark","new-year","march-8"], default: "light" }
+          - { label: "Видео на главной (embed VK)", name: hero_video, widget: text }
