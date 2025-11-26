@@ -13,39 +13,34 @@ display_url: https://stone-dekor-stroyka-remont.netlify.app
 auth:
   scope: openid profile email
 
-# Роли для защиты
-roles:
-  - sysadmin
-  - editor
-
 collections:
   - name: gallery
-   label: "Галерея / Портфолио"
-   folder: "content/gallery"
-   create: true
-   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-   fields:
-     - { label: "Название проекта", name: title, widget: string }
-     - { label: "Описание", name: body, widget: markdown }
-     - { label: "Embed-код из VK", name: embed, widget: text, hint: "Вставь полный <iframe> из ВКонтакте" }
-     - { label: "Дата", name: date, widget: datetime }
+    label: "Галерея / Портфолио"
+    folder: "content/gallery"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Название проекта", name: title, widget: string }
+      - { label: "Описание", name: body, widget: markdown }
+      - { label: "Embed-код из VK", name: embed, widget: text, hint: "Вставь полный <iframe> из ВКонтакте" }
+      - { label: "Дата", name: date, widget: datetime }
 
- - name: blog
-   label: "Блог / Новости"
-   folder: "content/blog"
-   create: true
-   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-   fields:
-     - { label: "Заголовок", name: title, widget: string }
-     - { label: "Текст", name: body, widget: markdown }
-     - { label: "Дата", name: date, widget: datetime }
+  - name: blog
+    label: "Блог / Новости"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: title, widget: string }
+      - { label: "Текст", name: body, widget: markdown }
+      - { label: "Дата", name: date, widget: datetime }
 
- - name: settings
-   label: "Настройки сайта"
-   files:
-     - file: "content/settings/site.yml"
-       label: "Тема и видео"
-       name: settings
-       fields:
-         - { label: "Тема", name: theme, widget: select, options: ["light","dark","new-year","march-8"], default: "light" }
-         - { label: "Видео на главной (embed VK)", name: hero_video, widget: text }
+  - name: settings
+    label: "Настройки сайта"
+    files:
+      - file: "content/settings/site.yml"
+        label: "Тема и видео"
+        name: settings
+        fields:
+          - { label: "Тема", name: theme, widget: select, options: ["light","dark","new-year","march-8"], default: "light" }
+          - { label: "Видео на главной (embed VK)", name: hero_video, widget: text }
