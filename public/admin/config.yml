@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  base_url: https://stone-dekor-stroyka-remont.netlify.app/.netlify/functions  # Для Functions
 
 media_folder: "public/img/uploads"
 public_folder: "/img/uploads"
@@ -9,9 +10,11 @@ site_url: https://stone-dekor-stroyka-remont.netlify.app
 display_url: https://stone-dekor-stroyka-remont.netlify.app
 
 auth:
-  auth0:
-    clientID: ТВОЙ_CLIENT_ID_ИЗ_AUTH0  # вставь сюда, например 344170084750-40d6v756e7k8qfbd9e31nm8uv4auvv0n
-    domain: ТВОЙ_DOMAIN_ИЗ_AUTH0  # вставь сюда, например dev-abc123.eu.auth0.com
+  type: oauth
+  provider: auth0
+  domain: dev-xxx.eu.auth0.com  # ← ТВОЙ DOMAIN
+  clientID: 344170084750-40d6v756e7k8qfbd9e31nm8uv4auvv0n  # ← ТВОЙ CLIENT ID
+  redirectURI: https://stone-dekor-stroyka-remont.netlify.app/.netlify/functions/auth-callback
 
 collections:
   - name: gallery
