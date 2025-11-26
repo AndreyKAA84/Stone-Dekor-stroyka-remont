@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: andreykaa/barsky-remont-site
+  name: git-gateway
   branch: main
-  auth_type: implicit
 
 media_folder: "public/img/uploads"
 public_folder: "/img/uploads"
@@ -22,14 +20,13 @@ collections:
     fields:
       - { label: "Название проекта", name: title, widget: string }
       - { label: "Описание", name: body, widget: markdown }
-      - { label: "Embed-код из VK", name: embed, widget: text, hint: "Вставь полный <iframe> из ВКонтакте" }
+      - { label: "Embed-код из VK", name: embed, widget: text, hint: "Вставь <iframe> из ВКонтакте" }
       - { label: "Дата", name: date, widget: datetime }
 
   - name: blog
     label: "Блог / Новости"
     folder: "content/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Заголовок", name: title, widget: string }
       - { label: "Текст", name: body, widget: markdown }
