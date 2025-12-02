@@ -1,0 +1,13 @@
+{
+  "name": "stone-dekor-stroyka-remont",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tinacms dev -c \"npm run build\"",
+    "build": "tinacms build"
+  },
+  "dependencies": {
+    "@tinacms/cli": "^1.12.6",
+    "tinacms": "^1.6.7"
+  }
+}
