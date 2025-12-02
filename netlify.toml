@@ -1,7 +1,0 @@
-[[functions]]
-path = "/.netlify/functions/git-gateway"
-function = "git-gateway"
-
-[[functions]]
-path = "/.netlify/functions/auth-callback"
-function = "auth-callback"
