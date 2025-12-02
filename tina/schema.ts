@@ -1,4 +1,6 @@
-export default {
+import { defineSchema } from "tinacms";
+
+export default defineSchema({
   collections: [
     {
       label: "Блог",
@@ -20,8 +22,8 @@ export default {
         { type: "string", label: "Название проекта", name: "title", isTitle: true, required: true },
         { type: "string", label: "Описание", name: "description" },
         { type: "image", label: "Фото", name: "images", list: true },
-        { type: "string", label: "Видео (YouTube/VK)", name: "video", required: false },
+        { type: "string", label: "Видео", name: "video" },
       ],
     },
   ],
-};
+});
